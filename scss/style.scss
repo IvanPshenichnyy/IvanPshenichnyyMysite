@@ -1,0 +1,320 @@
+@import '../scss/animation/_animation.scss';
+@import '../scss/font/_font.scss';
+@import '../scss/var/_var.scss';
+
+
+
+$BgColor: rgb(19, 31, 60); 
+$altcolor: rgb(219, 183, 140);
+
+
+body,
+html{
+    width: 100%; 
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   section{
+     overflow: hidden;
+     position: relative;
+    top: 0px;
+     left: 0px; 
+      height: 100%;
+     width: 100%;
+   }
+   img{
+     width: 100%;
+     height: auto;
+   }
+
+   .content{
+     overflow: hidden;
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     text-align: center;
+     height: 60px;
+      cursor: pointer;
+      font-size: 3em;
+      background-color: $BgColor;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 5px;
+      z-index: 10;
+   }
+
+   
+
+   
+   
+   
+   /*==== Меню =====  */
+   .navigation{
+     position: absolute;
+     display: none;
+     overflow: hidden;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 10;
+    //  background-color:rgba(88, 28, 230, 1);
+    background-color: $BgColor;
+     .nav-wrap{
+       height: 90%;
+       overflow-x: hidden;
+       overflow-y: auto !important;
+       .navigation-list{
+        // position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: white;
+        list-style: none;
+        .navigation-items{
+          width: 100%;
+          padding: 5px;
+          border-bottom: 2px solid white;
+          font-size: 3em;
+          &:hover{
+              background-color:$altcolor ;
+              color: $BgColor;
+              transition: color .5s, background-color .5s;
+          }
+      
+        }
+       }
+    }
+    //Кнопка закрыть
+    .close{
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      box-shadow: 0 0 8px 1.5px rgba(0,0,0, .5);
+      background-color: #fff;
+      bottom: -55px;
+      left: 50%;
+      margin-left: -20px;
+      z-index: 11;
+      font-size: 0;
+    }
+    .close::after,
+   .close::before{
+     content: '';
+     background-color: rgba(88, 28, 230, 1);
+     position: absolute;
+     left: 5px;
+     right: 5px;
+     top: 18px;
+     height: 4px;
+     z-index: 15;
+     transform: rotate(45deg);
+   
+   }
+   .close:focus::after,
+   .close:focus::before,
+   .close:active::after,
+   .close:active::before{
+     opacity: .5;
+   }
+   .close::after{
+     transform: rotate(-45deg);
+   }
+   .close:hover::before{
+        animation: closeBefore .5s;
+   }
+   .close:hover::after{
+        animation: closeAfter .5s;
+   }
+  }
+    /*==== Меню конец =====  */
+
+
+
+    /* === === === === === === === === */
+    /* ===   Анимации и классы js  === */
+    /* === === === === === === === === */
+  
+/* Скрытие открывающегося меню */
+  .open{
+    // position: absolute;
+    // top: -100%;
+    //  animation: menuCloseAnim 1s;
+    //  animation-timing-function: ease-in-out;
+    //  animation-fill-mode: forwards;
+    //   animation-play-state: paused;
+   }
+
+
+
+   /* Анимация Всплывающего меню */
+  .showAnim{
+    display: block;
+    animation: showAnim 1s ease-in-out;
+  }
+
+  // Анимация лишек
+   .animShowLi1{
+     animation: animShowLi-1 1s ease-in;
+     animation-fill-mode: forwards;
+   }
+   .animShowLi2{
+    animation: animShowLi-2 1.5s ease-in ;
+    animation-fill-mode: forwards;
+  }
+  .animShowLi3{
+     animation: animShowLi-3 2s ease-in;
+     animation-fill-mode: forwards;
+   }
+   
+   
+   /*====  Анимация кнопки закрыть  ======  */  
+   .showAnimClose{
+     display: block;
+      animation: show .5s;
+     animation-delay: 1s;
+     animation-fill-mode: forwards;
+   }
+  
+
+   /*  Обратная онимация при щелчке на крестик*/
+   .showAnimCloseRew{
+     display: block;
+       animation: showRew .5s;
+     animation-delay: 1s;
+     animation-fill-mode: forwards;
+   }
+ 
+   
+   
+   
+   
+   
+   /* .showAnimClose анимация всплывающе кнопки закрыть */
+   /* .showAnim  анимация всплывающего меню*/ 
+   /* close & close2 Анимация hover before и after кнопки закрыть */
+   /* animShowLi-1,2,3 Анимация списка меню */
+ 
+   
+
+   
+   .main{
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     background-image: url('/img/velosipedisty_siluety_art_141404_1920x1080.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: 0 60px;
+     color: $altcolor;
+     position: relative;
+     &::after{
+       content: '';
+       position: absolute;
+       left: 0;
+       right: 0;
+       top: 0;
+       bottom: 0;
+       background-color: rgba(0,0,0, .5);
+       z-index: 2;
+     }
+     &-content_wrap{
+       padding: 0 20px;
+       overflow: auto;
+       
+       z-index: 3;
+       position: absolute;
+       left: 0;
+       right: 0;
+       top: 10%;
+       bottom: 0;
+       display: flex;
+       .col-1{
+         position: relative;
+         padding: 20px;
+         padding-top: 110px;
+         width: 50%;
+         article{
+           position: absolute;
+           background-color: #fff;
+           margin: 10px;
+           padding: 15px 10px;
+           padding-bottom: 5px;
+           width: 300px;
+           transform: scale(.8);
+           transition: transform .5s;
+           &:hover{
+             transform: scale(1);
+           }
+           &:nth-child(1){
+              top: 20%;
+              right: 0;
+           }
+           &:nth-child(2){
+            top: 60%;
+          }
+          &:nth-child(3){
+            top: 100%;
+            right: 0;
+          }
+           &::before{
+             content: '';
+             position: absolute;
+             width: 8px;
+             height: 8px;
+             background-color: $BgColor;
+            //  background-image: linear-gradient( black 30%, white);
+            box-shadow: 0 0 2px 1px black;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+             border-radius: 100%;
+           }
+         }
+       }
+       .col-2{
+         order: -1;
+          width: 50%;
+         h2{
+           font-size: 2.4em;
+         }
+         p{
+          font-size: 1em;
+         }
+       }
+     }
+   }
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   .footer{
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     height: 70px;
+     background-color: rgb(222,222,222);
+   }
